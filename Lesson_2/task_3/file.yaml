@@ -1,0 +1,9 @@
+first_key:
+- computer
+- printer
+- scanner
+second_key: 7
+third_key:
+  computer: 500€
+  printer: 250€
+  scanner: 100€
