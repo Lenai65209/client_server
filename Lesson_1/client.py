@@ -1,6 +1,8 @@
 import locale
 import subprocess
 
+from chardet.universaldetector import UniversalDetector
+
 # 1 Каждое из слов «разработка», «сокет», «декоратор» представить в
 # строковом формате и проверить тип и содержание соответствующих переменных.
 # Затем с помощью онлайн-конвертера преобразовать строковые представление в
@@ -56,15 +58,31 @@ for el in st_dev:
 
 # import subprocess
 
+# from chardet.universaldetector import UniversalDetector
+
+detector = UniversalDetector()
+
 args = ['ping', 'youtube.com']
 subproc_ping = subprocess.Popen(args, stdout=subprocess.PIPE)
 for line in subproc_ping.stdout:
-    print(line.decode('cp866').encode('utf-8').decode('utf-8'))
+    # print(line.decode('cp866').encode('utf-8').decode('utf-8'))
+    detector.feed(line)
+    detector.close()
+    cod = detector.result['encoding']
+    print(cod)
+    print(line.decode(cod).encode('utf-8').decode('utf-8'), end='')
+    detector.reset()  # сбрасываем детектор в исходное состояние
 
 args = ['ping', 'yandex.ru']
 subproc_ping = subprocess.Popen(args, stdout=subprocess.PIPE)
 for line in subproc_ping.stdout:
-    print(line.decode('cp866').encode('utf-8').decode('utf-8'))
+    # print(line.decode('cp866').encode('utf-8').decode('utf-8'))
+    detector.feed(line)
+    detector.close()
+    cod = detector.result['encoding']
+    print(cod)
+    print(line.decode(cod).encode('utf-8').decode('utf-8'), end='')
+    detector.reset()  # сбрасываем детектор в исходное состояние
 
 # 6 Создать текстовый файл test_file.txt, заполнить его тремя строками:
 # «сетевое программирование», «сокет», «декоратор». Проверить кодировку файла
@@ -73,13 +91,23 @@ for line in subproc_ping.stdout:
 
 # import locale
 
+# from chardet.universaldetector import UniversalDetector
+
+detector = UniversalDetector()
+
 with open('test_file.txt') as f_n:
     for el_str in f_n:
-        print(el_str)
+        print(el_str, end='')
 
 def_coding = locale.getpreferredencoding()
 print(def_coding)  # кодировка по умолчанию: cp1251
 
-with open('test_file.txt', encoding='utf-8') as f_n:
-    for el_str in f_n:
-        print(el_str, end='')
+with open('test_file.txt', 'br') as f_n:
+    for el_str in f_n:  # проходимся по строкам файла в режиме 'rb'
+        detector.feed(el_str)
+        detector.close()
+        cod = detector.result['encoding']
+        print(cod)
+        print(el_str.decode(cod).encode('utf-8').decode('utf-8'), end='')
+        detector.reset()  # сбрасываем детектор в исходное состояние
+
