@@ -5,8 +5,8 @@ import os
 import sys
 import unittest
 sys.path.append(os.path.join(os.getcwd(), '..'))
-from common.utils import accept_message, send_message
-from common.variables import RESPONSE, ERROR, USER, ACCOUNT_NAME, TIME, ACTION, \
+from my_common.utils import accept_message, send_message
+from my_common.variables import RESPONSE, ERROR, USER, ACCOUNT_NAME, TIME, ACTION, \
     PRESENCE, ENCODING
 
 

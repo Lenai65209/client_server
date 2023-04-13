@@ -5,7 +5,7 @@ import sys
 import unittest
 sys.path.append(os.path.join(os.getcwd(), '..'))
 from client import create_server_request, process_ans
-from common.variables import RESPONSE, ERROR, USER, ACCOUNT_NAME, TIME, \
+from my_common.variables import RESPONSE, ERROR, USER, ACCOUNT_NAME, TIME, \
     ACTION, PRESENCE, ENCODING
 
 
