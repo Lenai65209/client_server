@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Кофнфиг клиентского логгера"""
 
 import sys
@@ -17,7 +18,7 @@ PATH = os.path.join(PATH, 'client.log')
 STREAM_HANDLER = logging.StreamHandler(sys.stderr)
 STREAM_HANDLER.setFormatter(CLIENT_FORMATTER)
 STREAM_HANDLER.setLevel(logging.ERROR)
-LOG_FILE = logging.FileHandler(PATH, encoding='UTF-8')
+LOG_FILE = logging.FileHandler(PATH, encoding='utf-8')
 LOG_FILE.setFormatter(CLIENT_FORMATTER)
 
 # создаём регистратор и настраиваем его
