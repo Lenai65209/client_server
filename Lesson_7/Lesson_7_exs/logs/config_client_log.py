@@ -1,29 +1,27 @@
-# -*- coding: utf-8 -*-
-"""Кофнфиг серверного логгера"""
+"""Кофнфиг клиентского логгера"""
 
 import sys
 import os
 import logging
-import logging.handlers
+from common.variables import LOGGING_LEVEL
 sys.path.append('../')
-from my_common.variables import LOGGING_LEVEL, ENCODING
 
 # создаём формировщик логов (formatter):
-SERVER_FORMATTER = logging.Formatter('%(asctime)s %(levelname)s %(filename)s %(message)s')
+CLIENT_FORMATTER = logging.Formatter('%(asctime)s %(levelname)s %(filename)s %(message)s')
 
 # Подготовка имени файла для логирования
 PATH = os.path.dirname(os.path.abspath(__file__))
-PATH = os.path.join(PATH, 'server.log')
+PATH = os.path.join(PATH, 'client.log')
 
 # создаём потоки вывода логов
 STREAM_HANDLER = logging.StreamHandler(sys.stderr)
-STREAM_HANDLER.setFormatter(SERVER_FORMATTER)
+STREAM_HANDLER.setFormatter(CLIENT_FORMATTER)
 STREAM_HANDLER.setLevel(logging.ERROR)
-LOG_FILE = logging.handlers.TimedRotatingFileHandler(PATH, encoding='utf-8', interval=1, when='D')
-LOG_FILE.setFormatter(SERVER_FORMATTER)
+LOG_FILE = logging.FileHandler(PATH, encoding='utf8')
+LOG_FILE.setFormatter(CLIENT_FORMATTER)
 
 # создаём регистратор и настраиваем его
-LOGGER = logging.getLogger('server')
+LOGGER = logging.getLogger('client')
 LOGGER.addHandler(STREAM_HANDLER)
 LOGGER.addHandler(LOG_FILE)
 LOGGER.setLevel(LOGGING_LEVEL)
@@ -34,4 +32,3 @@ if __name__ == '__main__':
     LOGGER.error('Ошибка')
     LOGGER.debug('Отладочная информация')
     LOGGER.info('Информационное сообщение')
-    logging.warning("Предупреждение")
