@@ -320,3 +320,28 @@ Yes!!
 2023-04-26 08:13:12,113 DEBUG decos.py Была вызвана функция main c параметрами (), {}. Вызов из модуля __main__
 2023-04-26 08:13:18,656 INFO Client.py Завершение работы по команде пользователя.
 2023-04-26 08:13:18,884 CRITICAL Client.py Потеряно соединение с сервером.
+2023-04-28 19:45:25,865 DEBUG decos.py Была вызвана функция arg_parser c параметрами (), {}. Вызов из модуля __main__
+2023-04-28 19:45:30,593 INFO client.py Запущен клиент с парамертами: адрес сервера: 127.0.0.1, порт: 7777, имя пользователя: Lena
+2023-04-28 19:45:30,599 DEBUG client.py Сформировано presence сообщение для пользователя Lena
+2023-04-28 19:45:30,599 DEBUG decos.py Была вызвана функция create_server_request c параметрами ('Lena',), {}. Вызов из модуля __main__
+2023-04-28 19:45:30,600 DEBUG decos.py Была вызвана функция send_message c параметрами (<socket.socket fd=500, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 52632), raddr=('127.0.0.1', 7777)>, {'action': 'presence', 'time': 1682700330.599227, 'user': {'account_name': 'Lena'}}), {}. Вызов из модуля my_common.utils
+2023-04-28 19:45:31,105 DEBUG decos.py Была вызвана функция accept_message c параметрами (<socket.socket fd=500, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 52632), raddr=('127.0.0.1', 7777)>,), {}. Вызов из модуля my_common.utils
+2023-04-28 19:45:31,105 DEBUG client.py Разбор приветственного сообщения от сервера: {'response': 400, 'error': 'Имя пользователя уже занято.'}
+2023-04-28 19:45:31,105 ERROR client.py При установке соединения сервер вернул ошибку: 400 : Имя пользователя уже занято.
+2023-04-28 19:45:47,065 DEBUG decos.py Была вызвана функция arg_parser c параметрами (), {}. Вызов из модуля __main__
+2023-04-28 19:45:50,828 INFO client.py Запущен клиент с парамертами: адрес сервера: 127.0.0.1, порт: 7777, имя пользователя: 951
+2023-04-28 19:45:50,834 DEBUG client.py Сформировано presence сообщение для пользователя 951
+2023-04-28 19:45:50,834 DEBUG decos.py Была вызвана функция create_server_request c параметрами ('951',), {}. Вызов из модуля __main__
+2023-04-28 19:45:50,835 DEBUG decos.py Была вызвана функция send_message c параметрами (<socket.socket fd=508, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 52633), raddr=('127.0.0.1', 7777)>, {'action': 'presence', 'time': 1682700350.8341243, 'user': {'account_name': '951'}}), {}. Вызов из модуля my_common.utils
+2023-04-28 19:45:51,338 DEBUG decos.py Была вызвана функция accept_message c параметрами (<socket.socket fd=508, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 52633), raddr=('127.0.0.1', 7777)>,), {}. Вызов из модуля my_common.utils
+2023-04-28 19:45:51,338 DEBUG client.py Разбор приветственного сообщения от сервера: {'response': 200}
+2023-04-28 19:45:51,338 DEBUG decos.py Была вызвана функция process_response_ans c параметрами ({'response': 200},), {}. Вызов из модуля __main__
+2023-04-28 19:45:51,338 INFO client.py Установлено соединение с сервером. Ответ сервера: 200 : OK
+2023-04-28 19:45:51,341 DEBUG client.py Запущены процессы
+2023-04-28 19:52:07,100 DEBUG decos.py Была вызвана функция create_exit_message c параметрами ('951',), {}. Вызов из модуля __main__
+2023-04-28 19:52:07,101 DEBUG decos.py Была вызвана функция send_message c параметрами (<socket.socket fd=508, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 52633), raddr=('127.0.0.1', 7777)>, {'action': 'exit', 'time': 1682700727.1003144, 'account_name': '951'}), {}. Вызов из модуля my_common.utils
+2023-04-28 19:52:07,102 INFO client.py Завершение работы по команде пользователя.
+2023-04-28 19:52:07,107 CRITICAL client.py Потеряно соединение с сервером.
+2023-04-28 19:52:07,108 DEBUG decos.py Была вызвана функция message_from_server c параметрами (<socket.socket fd=508, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 52633), raddr=('127.0.0.1', 7777)>, '951'), {}. Вызов из модуля __main__
+2023-04-28 19:52:07,605 DEBUG decos.py Была вызвана функция user_interactive c параметрами (<socket.socket fd=508, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 52633), raddr=('127.0.0.1', 7777)>, '951'), {}. Вызов из модуля __main__
+2023-04-28 19:52:08,025 DEBUG decos.py Была вызвана функция main c параметрами (), {}. Вызов из модуля __main__
