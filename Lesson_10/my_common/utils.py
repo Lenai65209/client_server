@@ -18,7 +18,7 @@ SERVER_LOGGER = logging.getLogger('server')
 
 
 @log
-def accept_message(client):
+def get_message(client):
     encoded_response = client.recv(MAX_PACKAGE_LENGTH)
     if isinstance(encoded_response, bytes):
         json_response = encoded_response.decode(ENCODING)
