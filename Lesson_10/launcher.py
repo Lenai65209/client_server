@@ -7,7 +7,7 @@ PROCESSES = []
 
 try:
     applications_number = int(input('Укажите максимальное число запускаемых '
-                                'клиентских приложений: '))
+                                    'клиентских приложений: '))
 except Exception as e:
     print(e)
 
@@ -22,8 +22,9 @@ while True:
         PROCESSES.append(subprocess.Popen('python server.py',
                                           creationflags=subprocess.CREATE_NEW_CONSOLE))
         for i in range(applications_number):
-            PROCESSES.append(subprocess.Popen(f'python client.py -n test{i}',
-                                              creationflags=subprocess.CREATE_NEW_CONSOLE))
+            PROCESSES.append(
+                subprocess.Popen(f'python client.py -n test{i + 1}',
+                                 creationflags=subprocess.CREATE_NEW_CONSOLE))
 
     elif ACTION == 'x':
         while PROCESSES:
